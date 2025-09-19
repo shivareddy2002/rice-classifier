@@ -1,11 +1,12 @@
 # app.py
 import streamlit as st
 from PIL import Image
-from model_utils import load_rice_model, load_class_map, predict_topk, get_model_input_size
+from model_utils import load_rice_model, load_class_map, predict_topk, get_model_input_size, preprocess_pil_image
 import os
 
 print("Current working directory:", os.getcwd())
 print("Files in model/:", os.listdir("model"))
+
 st.set_page_config(page_title="Rice Classifier", layout="centered")
 st.title("🌾 Rice Type Classifier")
 st.write("Upload an image of a rice grain — the model will predict its type.")
@@ -32,7 +33,13 @@ top_k = st.slider("Top K predictions", min_value=1, max_value=min(5, len(class_n
 
 if uploaded_file is not None:
     img = Image.open(uploaded_file).convert("RGB")
-    st.image(img, caption="Uploaded image", use_column_width=True)
+    st.image(img, caption="Uploaded image", use_container_width=True)
+
+    # --- New code to show resized image ---
+    resized_img = preprocess_pil_image(img, input_size)  # preprocess_pil_image should return a list/array
+    st.image(resized_img[0], caption="Resized image for model", use_container_width=True)
+
+    st.write(f"Model expects {input_size} (HxW). Uploaded image size: {img.size} (W x H).")
 
     if st.button("Classify"):
         with st.spinner("Predicting..."):
@@ -40,5 +47,3 @@ if uploaded_file is not None:
         st.success("Done")
         for r in results:
             st.write(f"**{r['label']}** — confidence: {r['confidence']:.3f}")
-
-    st.write(f"Model expects {input_size} (HxW). Uploaded image size: {img.size} (W x H).")

@@ -1,5 +1,5 @@
 # 🌾 Rice Type Classifier
-<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/178f4b91-d4b1-41a9-b45f-243937f88f8f" />
+<img width="1000" height="200" alt="image" src="https://github.com/user-attachments/assets/178f4b91-d4b1-41a9-b45f-243937f88f8f" />
 
 A **Deep Learning-based application** that classifies different types of rice from an image. Built using **Python**, **TensorFlow/Keras**, and **Streamlit** for an interactive web interface.
 

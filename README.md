@@ -1,5 +1,4 @@
 # 🌾 Rice Type Classifier
-<img width="700" height="250" alt="image" src="https://github.com/user-attachments/assets/178f4b91-d4b1-41a9-b45f-243937f88f8f" />
 
 A **Deep Learning-based application** that classifies different types of rice from an image. Built using **Python**, **TensorFlow/Keras**, and **Streamlit** for an interactive web interface.
 
@@ -21,7 +20,10 @@ Try the deployed application here:
   - Basmati  
   - Ipsala  
   - Jasmine  
-  - Karacadag  
+  - Karacadag
+  
+<img width="700" height="250" alt="image" src="https://github.com/user-attachments/assets/178f4b91-d4b1-41a9-b45f-243937f88f8f" />
+
 - Clean and interactive **web interface**  
 - Lightweight and easy to deploy  
 - Real-time predictions using **Convolutional Neural Networks (CNNs)**  
